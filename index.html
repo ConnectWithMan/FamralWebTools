@@ -178,10 +178,19 @@
             width: 30px;
             height: 3px;
             background-color: var(--text);
+            transition: all 0.3s ease-in-out;
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
         }
         @media (max-width: 768px) {
             header {
-                flex-wrap: wrap;
                 padding: 1rem;
             }
             .hamburger {
@@ -189,22 +198,29 @@
             }
             nav {
                 display: none;
-                width: 100%;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--surface);
                 flex-direction: column;
                 align-items: center;
-                gap: 1rem;
-                margin-top: 1rem;
-                padding-top: 1rem;
-                border-top: 2px solid var(--border);
+                border-bottom: 2px solid var(--border);
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             }
             nav.active {
                 display: flex;
+                animation: slideDown 0.2s ease-out forwards;
             }
             nav a {
                 margin-left: 0;
                 width: 100%;
                 text-align: center;
-                padding: 0.5rem 0;
+                padding: 1rem 0;
+                border-top: 1px solid var(--border);
+            }
+            nav a:hover {
+                background-color: var(--bg);
             }
             .hero h1 {
                 font-size: 2.5rem;
@@ -216,6 +232,10 @@
                 grid-template-columns: 1fr;
                 padding: 0 1rem;
             }
+        }
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
@@ -284,7 +304,15 @@
         const navMenu = document.getElementById('nav-menu');
 
         hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
+        });
+
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
         });
     </script>
 </body>
