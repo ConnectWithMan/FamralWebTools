@@ -159,7 +159,7 @@
         .faq-item p { margin: 0; color: var(--secondary); }
         footer {
             text-align: center;
-            padding: 3rem;
+            padding: 0.2rem;
             color: var(--secondary);
             border-top: 1px solid var(--border);
             border-top: 2px solid var(--border);
@@ -297,7 +297,7 @@
         </section>
     </main>
     <footer>
-        <p>&copy; 2026 Famral Tools. All rights reserved.</p>
+        <p>&copy; <span id="year"></span> Famral Tools. All rights reserved.</p>
     </footer>
     <script>
         const hamburger = document.getElementById('hamburger');
@@ -314,6 +314,8 @@
                 navMenu.classList.remove('active');
             });
         });
+
+        document.getElementById('year').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
