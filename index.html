@@ -1,1 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Famral WebTools - Free Productivity & Developer Tools</title>
+    <meta name="description" content="Boost your workflow with Famral WebTools. A suite of free online productivity and developer tools including JSON Formatter, CSS Minifier, QR Code Generator, and more.">
+    <meta name="keywords" content="productivity tools, developer tools, online web tools, json formatter, base64 converter, css minifier, color picker, qr code generator, image optimizer, free developer utilities">
+    <meta name="author" content="Famral WebTools">
+    <meta property="og:title" content="Famral WebTools - Free Productivity & Developer Tools">
+    <meta property="og:description" content="Boost your workflow with free online productivity and developer tools. Fast, secure, and easy to use.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tools.famral.com/">
+    <link rel="canonical" href="https://tools.famral.com/">
+    <link rel="icon" type="image/png" href="https://www.famral.com/favicon.png">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --secondary: #475569;
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --text: #1e293b;
+            --border: #e2e8f0;
+            --border: #cbd5e1;
+        }
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        header {
+            background: var(--surface);
+            padding: 1rem 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-bottom: 2px solid var(--border);
+            box-shadow: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .brand {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+        nav a {
+            margin-left: 2rem;
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        nav a:hover { color: var(--primary); }
+        .hero {
+            text-align: center;
+            padding: 6rem 1rem;
+            background: linear-gradient(to bottom, #eff6ff, var(--bg));
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            margin: 0 0 1rem;
+            color: #0f172a;
+            line-height: 1.2;
+        }
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--secondary);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+        }
+        .btn {
+            background: var(--primary);
+            color: white;
+            padding: 0.875rem 2rem;
+            border-radius: 0.5rem;
+            border-radius: 0;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.2s;
+            transition: all 0.2s;
+            display: inline-block;
+            border: 2px solid transparent;
+        }
+        .btn:hover { background-color: var(--primary-hover); }
+        .btn:hover { 
+            background-color: var(--surface); 
+            color: var(--primary);
+            border-color: var(--primary);
+            box-shadow: 4px 4px 0 var(--primary-hover);
+            transform: translate(-2px, -2px);
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 2rem auto 5rem;
+            padding: 0 1.5rem;
+        }
+        .card {
+            background: var(--surface);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid var(--border);
+            border-radius: 0;
+            border: 2px solid var(--border);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transform: translate(-4px, -4px);
+            box-shadow: 6px 6px 0 var(--primary);
+            border-color: var(--primary);
+        }
+        .card h3 { margin-top: 0; color: var(--text); font-size: 1.25rem; }
+        .card p { color: var(--secondary); margin-bottom: 0; }
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin: 4rem 0 2rem;
+            color: var(--text);
+        }
+        .features {
+            background: var(--surface);
+            padding: 4rem 1rem;
+            border-top: 2px solid var(--border);
+            border-bottom: 2px solid var(--border);
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .feature-item h3 { color: var(--primary); }
+        .faq {
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            padding: 0 1rem;
+        }
+        .faq-item {
+            border: 2px solid var(--border);
+            margin-bottom: 1rem;
+            padding: 1.5rem;
+            background: var(--surface);
+        }
+        .faq-item h4 { margin: 0 0 0.5rem; font-size: 1.1rem; }
+        .faq-item p { margin: 0; color: var(--secondary); }
+        footer {
+            text-align: center;
+            padding: 3rem;
+            color: var(--secondary);
+            border-top: 1px solid var(--border);
+            border-top: 2px solid var(--border);
+            background: var(--surface);
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background-color: var(--text);
+        }
+        @media (max-width: 768px) {
+            header {
+                flex-wrap: wrap;
+                padding: 1rem;
+            }
+            .hamburger {
+                display: flex;
+            }
+            nav {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+                margin-top: 1rem;
+                padding-top: 1rem;
+                border-top: 2px solid var(--border);
+            }
+            nav.active {
+                display: flex;
+            }
+            nav a {
+                margin-left: 0;
+                width: 100%;
+                text-align: center;
+                padding: 0.5rem 0;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero {
+                padding: 3rem 1rem;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#" class="brand">Famral WebTools</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="nav-menu">
+            <a href="#">Home</a>
+            <a href="#tools">Tools</a>
+            <a href="#features">Features</a>
+            <a href="#faq">FAQ</a>
+            <a href="#">About</a>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <h1>Productivity & Developer Tools<br>Made Simple</h1>
+            <p>A comprehensive suite of free online utilities designed to boost productivity for developers, designers, and digital creators. Fast, secure, and easy to use.</p>
+            <a href="#tools" class="btn">Explore Tools</a>
+        </section>
+        <h2 class="section-title">Popular Utilities</h2>
+        <section id="tools" class="grid">
+            <div class="card"><h3>JSON Formatter</h3><p>Validate, minify, and format your JSON data with error highlighting.</p></div>
+            <div class="card"><h3>Base64 Converter</h3><p>Encode and decode text or files to Base64 format instantly.</p></div>
+            <div class="card"><h3>CSS Minifier</h3><p>Compress your CSS code to improve website load times.</p></div>
+            <div class="card"><h3>Color Picker</h3><p>Generate palettes and convert between Hex, RGB, and HSL.</p></div>
+            <div class="card"><h3>QR Code Generator</h3><p>Create custom QR codes for URLs, text, and Wi-Fi access.</p></div>
+            <div class="card"><h3>Image Optimizer</h3><p>Compress and resize images without losing quality.</p></div>
+        </section>
 
+        <section id="features" class="features">
+            <h2 class="section-title" style="margin-top: 0;">Why Choose Famral?</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h3>100% Free</h3>
+                    <p>All tools are completely free to use with no hidden costs or subscriptions.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Client-Side Processing</h3>
+                    <p>Your data stays in your browser. We don't store or transmit your sensitive information.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Lightning Fast</h3>
+                    <p>Optimized for performance to give you results instantly, keeping your productivity flow uninterrupted.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="faq">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-item"><h4>Is it really free?</h4><p>Yes, all tools on Famral WebTools are free for both personal and commercial use.</p></div>
+            <div class="faq-item"><h4>Is my data safe?</h4><p>Absolutely. All processing happens locally in your browser (client-side), ensuring your data never leaves your device.</p></div>
+            <div class="faq-item"><h4>Do I need to create an account?</h4><p>No account is required. You can start using the tools immediately.</p></div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Famral WebTools. All rights reserved.</p>
+    </footer>
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
