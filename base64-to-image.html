@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Online Base64 to Image Decoder</title>
+    <meta name="description" content="Free online Base64 to Image decoder. Convert Base64 strings back into images instantly. Preview and download the result.">
+    <meta name="keywords" content="base64 to image, base64 decoder, image decoder, base64 string to image, convert base64, web tools">
+    <meta name="author" content="Famral">
+    <meta property="og:title" content="Free Online Base64 to Image Decoder">
+    <meta property="og:description" content="Convert Base64 strings back into images instantly. Free, secure, and runs entirely in your browser.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tools.famral.com/base64-to-image">
+    <link rel="canonical" href="https://tools.famral.com/base64-to-image">
+    <link rel="icon" type="image/png" href="https://www.famral.com/favicon.png">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --secondary: #475569;
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --text: #1e293b;
+            --border: #cbd5e1;
+        }
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background: var(--surface);
+            padding: 1rem 2rem;
+            border-bottom: 2px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .brand {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+        nav a {
+            margin-left: 2rem;
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        nav a:hover { color: var(--primary); }
+        .hamburger { display: none; flex-direction: column; gap: 6px; background: transparent; border: none; cursor: pointer; padding: 4px; }
+        .hamburger span { width: 30px; height: 3px; background-color: var(--text); transition: all 0.3s ease-in-out; }
+        .hamburger.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+        
+        .btn {
+            background: var(--primary);
+            color: white;
+            padding: 0.875rem 2rem;
+            border-radius: 0;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+            display: inline-block;
+            border: 2px solid transparent;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .btn:hover { 
+            background-color: var(--surface); 
+            color: var(--primary);
+            border-color: var(--primary);
+            box-shadow: 4px 4px 0 var(--primary-hover);
+            transform: translate(-2px, -2px);
+        }
+        .btn-secondary {
+            background: var(--surface);
+            color: var(--text);
+            border: 2px solid var(--border);
+        }
+        .btn-secondary:hover {
+            border-color: var(--secondary);
+            box-shadow: 4px 4px 0 var(--secondary);
+            color: var(--text);
+        }
+        main { flex: 1; padding: 2rem 1rem; }
+        .tool-container { max-width: 800px; margin: 0 auto; }
+        .tool-header { text-align: center; margin-bottom: 3rem; }
+        .tool-header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; color: var(--text); }
+        .tool-header p { color: var(--secondary); font-size: 1.1rem; }
+        
+        .tool-box { background: var(--surface); border: 2px solid var(--border); padding: 2rem; }
+        .input-group { margin-bottom: 1.5rem; }
+        label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
+        textarea {
+            width: 100%; height: 150px; padding: 1rem;
+            border: 2px solid var(--border); background: var(--bg);
+            color: var(--text); font-family: monospace; resize: vertical;
+            box-sizing: border-box; font-size: 1rem;
+        }
+        textarea:focus { outline: none; border-color: var(--primary); }
+        .controls { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+        
+        footer { text-align: center; padding: 0.2rem; color: var(--secondary); border-top: 2px solid var(--border); background: var(--surface); }
+
+        @media (max-width: 768px) {
+            header { padding: 1rem; }
+            .hamburger { display: flex; }
+            nav {
+                display: none; position: absolute; top: 100%; left: 0; right: 0;
+                background: var(--surface); flex-direction: column; align-items: center;
+                border-bottom: 2px solid var(--border); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            }
+            nav.active { display: flex; animation: slideDown 0.2s ease-out forwards; }
+            nav a { margin-left: 0; width: 100%; text-align: center; padding: 1rem 0; border-top: 1px solid var(--border); }
+            nav a:hover { background-color: var(--bg); }
+        }
+        .tool-content { margin-top: 4rem; border-top: 2px solid var(--border); padding-top: 2rem; }
+        .tool-content h2 { font-size: 1.8rem; color: var(--text); margin-bottom: 1rem; }
+        .tool-content h3 { font-size: 1.4rem; color: var(--text); margin-top: 2rem; margin-bottom: 0.5rem; }
+        .tool-content p { color: var(--secondary); margin-bottom: 1rem; }
+        .tool-content ul, .tool-content ol { padding-left: 1.5rem; color: var(--secondary); }
+        .tool-content li { margin-bottom: 0.5rem; }
+        code { background: var(--bg); padding: 0.2rem 0.4rem; border: 1px solid var(--border); font-family: monospace; }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="/" class="brand">Famral Tools</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+            <span></span><span></span><span></span>
+        </button>
+        <nav id="nav-menu">
+            <a href="/">Home</a>
+            <a href="/image-to-base64.html">Image to Base64</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="tool-container">
+            <div class="tool-header">
+                <h1>Base64 to Image Decoder</h1>
+                <p>Paste your Base64 string to decode it back into an image.</p>
+            </div>
+
+            <div class="tool-box">
+                <div class="input-group">
+                    <label for="input">Base64 String</label>
+                    <textarea id="input" placeholder="Paste Base64 string here (e.g., data:image/png;base64,...)"></textarea>
+                </div>
+
+                <div class="controls">
+                    <button id="convertBtn" class="btn">Convert to Image</button>
+                    <button id="clearBtn" class="btn btn-secondary">Clear</button>
+                </div>
+
+                <div class="input-group" id="resultContainer" style="display:none; text-align: center;">
+                    <label style="margin-bottom: 1rem;">Image Preview</label>
+                    <img id="preview" style="max-width: 100%; border: 2px solid var(--border); padding: 1rem; background: var(--bg); display: block; margin: 0 auto;" />
+                    <br>
+                    <a id="downloadBtn" class="btn" download="image.png">Download Image</a>
+                </div>
+            </div>
+
+            <div class="tool-content">
+                <h2>About Base64 to Image</h2>
+                <p>The Base64 to Image Decoder is a free utility that converts Base64 encoded strings back into image files. This is useful for debugging data URIs or recovering images from code.</p>
+                
+                <h3>What is a Base64 Image?</h3>
+                <p>A Base64 image is an image file encoded as a text string. It typically starts with <code>data:image/png;base64,</code> followed by a long sequence of characters. Browsers can read this string and display it as an image.</p>
+
+                <h3>How to use?</h3>
+                <ol>
+                    <li>Paste your Base64 string into the text area.</li>
+                    <li>Click <strong>Convert to Image</strong>.</li>
+                    <li>Preview the image below.</li>
+                    <li>Click <strong>Download Image</strong> to save it to your device.</li>
+                </ol>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Famral Tools. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Logic
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Tool Logic
+        const input = document.getElementById('input');
+        const preview = document.getElementById('preview');
+        const resultContainer = document.getElementById('resultContainer');
+        const downloadBtn = document.getElementById('downloadBtn');
+
+        document.getElementById('convertBtn').onclick = () => {
+            const val = input.value.trim();
+            if (!val) return;
+            
+            // Add prefix if missing
+            let src = val;
+            if (!src.startsWith('data:image')) {
+                // Try to guess or just assume png if raw base64
+                src = 'data:image/png;base64,' + src;
+            }
+            
+            preview.src = src;
+            downloadBtn.href = src;
+            resultContainer.style.display = 'block';
+        };
+
+        document.getElementById('clearBtn').onclick = () => { 
+            input.value = ''; 
+            resultContainer.style.display = 'none';
+            preview.src = '';
+        };
+    </script>
+</body>
+</html>
