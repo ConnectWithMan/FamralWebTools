@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -137,6 +138,22 @@
         code { background: var(--bg); padding: 0.2rem 0.4rem; border: 1px solid var(--border); font-family: monospace; }
         @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Free Online HTML Minifier",
+      "url": "https://tools.famral.com/html-minifier",
+      "description": "Minify, compress, and clean your HTML code to reduce file size. Free, fast, and runs entirely in your browser.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
 </head>
 <body>
     <header>
@@ -145,8 +162,9 @@
             <span></span><span></span><span></span>
         </button>
         <nav id="nav-menu">
-            <a href="/">Home</a>
-            <a href="/html-beautifier">HTML Beautifier</a>
+            <a href="/">All Tools</a>
+            <a href="/developer">Developer Tools</a>
+            <a href="/image">Image Tools</a>
         </nav>
     </header>
 
@@ -193,12 +211,32 @@
                     <li>The minified code will appear in the <strong>Minified Output</strong> box.</li>
                     <li>Click <strong>Copy Result</strong> to use it in your project.</li>
                 </ol>
+
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>Instant Processing:</strong> Minify your HTML code instantly without page reloads.</li>
+                    <li><strong>Privacy Protected:</strong> All processing is done in your browser; no data is sent to any server.</li>
+                    <li><strong>Safe Compression:</strong> Removes comments and extra whitespace without breaking your code structure.</li>
+                    <li><strong>Copy to Clipboard:</strong> Quickly copy the result with a single click.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions</h3>
+                <p><strong>Is this tool free to use?</strong><br>
+                Yes, this HTML Minifier is completely free for both personal and commercial use.</p>
+
+                <p><strong>Does this tool store my code?</strong><br>
+                No. The tool runs entirely on the client-side (in your browser), so your code is never stored or transmitted.</p>
+
+                <p><strong>Why should I minify my HTML?</strong><br>
+                Minifying HTML reduces file size, which leads to faster page load times, better user experience, and improved SEO scores.</p>
+
+                <p>Need more coding utilities? Check out our <a href="/developer">Developer Tools</a>.</p>
             </div>
         </div>
     </main>
 
     <footer>
-        <p>&copy; <span id="year"></span> Famral Tools. All rights reserved.</p>
+        <p>&copy; <span id="year"></span> Famral. All rights reserved.</p>
     </footer>
 
     <script>
