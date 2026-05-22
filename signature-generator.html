@@ -1,0 +1,404 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Online Signature Generator</title>
+    <meta name="description" content="Create, draw, and download your digital signature instantly in your browser. Free, fast, and secure.">
+    <meta name="keywords" content="signature generator, draw signature, online signature maker, digital signature, e-signature, free signature tool">
+    <meta name="author" content="Famral">
+    <meta property="og:title" content="Free Online Signature Generator">
+    <meta property="og:description" content="Create, draw, and download your digital signature instantly. Free and secure.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tools.famral.com/signature-generator">
+    <link rel="canonical" href="https://tools.famral.com/signature-generator">
+    <link rel="icon" type="image/png" href="https://www.famral.com/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Caveat:wght@400..700&family=Dancing+Script:wght@400..700&family=Great+Vibes&family=Pacifico&family=Parisienne&family=Sacramento&family=Satisfy&display=swap" rel="stylesheet">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7876432493491415"
+     crossorigin="anonymous"></script>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --secondary: #475569;
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --text: #1e293b;
+            --border: #cbd5e1;
+        }
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background: var(--surface);
+            padding: 1rem 2rem;
+            border-bottom: 2px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .brand {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+        nav a {
+            margin-left: 2rem;
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        nav a:hover { color: var(--primary); }
+        .hamburger { display: none; flex-direction: column; gap: 6px; background: transparent; border: none; cursor: pointer; padding: 4px; }
+        .hamburger span { width: 30px; height: 3px; background-color: var(--text); transition: all 0.3s ease-in-out; }
+        .hamburger.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+        
+        .btn {
+            background: var(--primary);
+            color: white;
+            padding: 0.875rem 2rem;
+            border-radius: 0;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+            display: inline-block;
+            border: 2px solid transparent;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .btn:hover { 
+            background-color: var(--surface); 
+            color: var(--primary);
+            border-color: var(--primary);
+            box-shadow: 4px 4px 0 var(--primary-hover);
+            transform: translate(-2px, -2px);
+        }
+        .btn-secondary {
+            background: var(--surface);
+            color: var(--text);
+            border: 2px solid var(--border);
+        }
+        .btn-secondary:hover {
+            border-color: var(--secondary);
+            box-shadow: 4px 4px 0 var(--secondary);
+            color: var(--text);
+        }
+        main { flex: 1; padding: 2rem 1rem; }
+        .tool-container { max-width: 800px; margin: 0 auto; }
+        .tool-header { text-align: center; margin-bottom: 3rem; }
+        .tool-header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; color: var(--text); }
+        .tool-header p { color: var(--secondary); font-size: 1.1rem; }
+        
+        .tool-box { background: var(--surface); border: 2px solid var(--border); padding: 2rem; }
+        .input-group { margin-bottom: 1.5rem; }
+        label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
+        textarea {
+            width: 100%; height: 200px; padding: 1rem;
+            border: 2px solid var(--border); background: var(--bg);
+            color: var(--text); font-family: monospace; resize: vertical;
+            box-sizing: border-box; font-size: 1rem;
+        }
+        textarea:focus { outline: none; border-color: var(--primary); }
+        .controls { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+        
+        footer { text-align: center; padding: 0.2rem; color: var(--secondary); border-top: 2px solid var(--border); background: var(--surface); }
+
+        @media (max-width: 768px) {
+            header { padding: 1rem; }
+            .hamburger { display: flex; }
+            nav {
+                display: none; position: absolute; top: 100%; left: 0; right: 0;
+                background: var(--surface); flex-direction: column; align-items: center;
+                border-bottom: 2px solid var(--border); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            }
+            nav.active { display: flex; animation: slideDown 0.2s ease-out forwards; }
+            nav a { margin-left: 0; width: 100%; text-align: center; padding: 1rem 0; border-top: 1px solid var(--border); }
+            nav a:hover { background-color: var(--bg); }
+        }
+        .tool-content { margin-top: 4rem; border-top: 2px solid var(--border); padding-top: 2rem; }
+        .tool-content h2 { font-size: 1.8rem; color: var(--text); margin-bottom: 1rem; }
+        .tool-content h3 { font-size: 1.4rem; color: var(--text); margin-top: 2rem; margin-bottom: 0.5rem; }
+        .tool-content p { color: var(--secondary); margin-bottom: 1rem; }
+        .tool-content ul, .tool-content ol { padding-left: 1.5rem; color: var(--secondary); }
+        .tool-content li { margin-bottom: 0.5rem; }
+        code { background: var(--bg); padding: 0.2rem 0.4rem; border: 1px solid var(--border); font-family: monospace; }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="/" class="brand">Famral Tools</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+            <span></span><span></span><span></span>
+        </button>
+        <nav id="nav-menu">
+            <a href="/">Home</a>
+            <a href="/image">Image Tools</a>
+            <a href="/image-converter">Image Converter</a>
+        </nav>
+    </header>
+
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7876432493491415"
+     crossorigin="anonymous"></script>
+<!-- FmrlToolsAllPgTopResnsv01 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7876432493491415"
+     data-ad-slot="7246941950"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+    <main>
+        <div class="tool-container">
+            <div class="tool-header">
+                <h1>Signature Generator</h1>
+                <p>Create, draw, and download your digital signature instantly in your browser.</p>
+            </div>
+
+            <div class="tool-box">
+                <div class="input-group">
+                    <label>Signature Options</label>
+                    <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+                        <div>
+                            <label for="colorPicker" style="display: inline-block; margin-right: 0.5rem; margin-bottom: 0;">Color:</label>
+                            <input type="color" id="colorPicker" value="#000000">
+                        </div>
+                        <div>
+                            <label for="brushSize" style="display: inline-block; margin-right: 0.5rem; margin-bottom: 0;">Thickness:</label>
+                            <input type="range" id="brushSize" min="1" max="10" value="3">
+                        </div>
+                        <div>
+                            <label for="bgOption" style="display: inline-block; margin-right: 0.5rem; margin-bottom: 0;">Background:</label>
+                            <select id="bgOption" style="padding: 0.2rem; border-radius: 4px; border: 1px solid var(--border); background: var(--surface); color: var(--text);">
+                                <option value="transparent">Transparent</option>
+                                <option value="white">White</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Type Signature (Optional)</label>
+                    <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+                        <input type="text" id="textInput" placeholder="Type your signature here..." style="flex: 1; min-width: 200px; padding: 0.5rem; border-radius: 4px; border: 1px solid var(--border); background: var(--surface); color: var(--text);">
+                        <select id="fontSelect" style="padding: 0.5rem; border-radius: 4px; border: 1px solid var(--border); background: var(--surface); color: var(--text);">
+                            <option value="Caveat">Caveat</option>
+                            <option value="Dancing Script">Dancing Script</option>
+                            <option value="Pacifico">Pacifico</option>
+                            <option value="Satisfy">Satisfy</option>
+                            <option value="Great Vibes">Great Vibes</option>
+                            <option value="Sacramento">Sacramento</option>
+                            <option value="Allura">Allura</option>
+                            <option value="Parisienne">Parisienne</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Draw Signature</label>
+                    <canvas id="signaturePad" width="800" height="300" style="width: 100%; max-width: 100%; border: 2px dashed var(--border); background: var(--surface); cursor: crosshair; touch-action: none; box-sizing: border-box;"></canvas>
+                </div>
+
+                <div class="controls">
+                    <button id="clearBtn" class="btn btn-secondary">Clear Canvas</button>
+                    <button id="downloadBtn" class="btn">Download Signature</button>
+                </div>
+            </div>
+
+            <div class="tool-content">
+                <h2>About Signature Generator Tool</h2>
+                <p>The Signature Generator Tool is a free online utility that allows you to quickly draw and download your digital signature. Perfect for signing digital documents, PDFs, and emails.</p>
+                
+                <h3>Why Use an Online Signature Generator?</h3>
+                <ul>
+                    <li><strong>Convenience:</strong> Sign digital documents instantly without needing to print and scan.</li>
+                    <li><strong>Customization:</strong> Adjust the thickness and color of your pen to match your style.</li>
+                    <li><strong>Text & Draw:</strong> Type your name using beautiful cursive fonts or draw it manually.</li>
+                    <li><strong>High Quality:</strong> Download a crisp, clear image with a transparent background ready to be inserted anywhere.</li>
+                </ul>
+
+                <h3>How to use?</h3>
+                <ol>
+                    <li><strong>Type</strong> your name in the text field to automatically generate a cursive signature, or...</li>
+                    <li>Use your mouse or touchscreen to draw in the <strong>Signature Box</strong>.</li>
+                    <li>Change the <strong>Color</strong> or <strong>Thickness</strong> settings as needed.</li>
+                    <li>Click <strong>Clear Canvas</strong> if you want to start over and try again.</li>
+                    <li>When satisfied, click <strong>Download Signature</strong> to save it to your device.</li>
+                </ol>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Famral Tools. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Logic
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Tool Logic
+        const canvas = document.getElementById('signaturePad');
+        const ctx = canvas.getContext('2d');
+        const colorPicker = document.getElementById('colorPicker');
+        const brushSize = document.getElementById('brushSize');
+        const clearBtn = document.getElementById('clearBtn');
+        const downloadBtn = document.getElementById('downloadBtn');
+        const textInput = document.getElementById('textInput');
+        const fontSelect = document.getElementById('fontSelect');
+        
+        let isDrawing = false;
+
+        // Setup context defaults
+        ctx.lineJoin = 'round';
+        ctx.lineCap = 'round';
+
+        function renderText() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            if (!textInput.value) return;
+            
+            ctx.fillStyle = colorPicker.value;
+            
+            let fontSize = 80;
+            ctx.font = `${fontSize}px "${fontSelect.value}", cursive`;
+            
+            const maxWidth = canvas.width - 40; // 20px padding on each side
+            let textWidth = ctx.measureText(textInput.value).width;
+            
+            if (textWidth > maxWidth) {
+                fontSize = Math.max(20, Math.floor(fontSize * (maxWidth / textWidth)));
+                ctx.font = `${fontSize}px "${fontSelect.value}", cursive`;
+            }
+            
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(textInput.value, canvas.width / 2, canvas.height / 2);
+        }
+
+        textInput.addEventListener('input', renderText);
+        fontSelect.addEventListener('change', renderText);
+        colorPicker.addEventListener('input', () => {
+            if (textInput.value) renderText();
+        });
+        document.fonts.ready.then(() => {
+            if (textInput.value) renderText();
+        });
+
+        // Calculate actual coordinates accounting for CSS scaling
+        function getCoordinates(event) {
+            const rect = canvas.getBoundingClientRect();
+            const clientX = event.clientX || (event.touches && event.touches[0].clientX);
+            const clientY = event.clientY || (event.touches && event.touches[0].clientY);
+            
+            return {
+                x: (clientX - rect.left) * (canvas.width / rect.width),
+                y: (clientY - rect.top) * (canvas.height / rect.height)
+            };
+        }
+
+        function startDrawing(e) {
+            isDrawing = true;
+            const coords = getCoordinates(e);
+            
+            ctx.beginPath();
+            ctx.moveTo(coords.x, coords.y);
+            
+            // Draw a single dot in case of a quick tap/click
+            ctx.strokeStyle = colorPicker.value;
+            ctx.lineWidth = brushSize.value;
+            ctx.lineTo(coords.x, coords.y);
+            ctx.stroke();
+        }
+
+        function draw(e) {
+            if (!isDrawing) return;
+            e.preventDefault(); // Prevent scrolling on touch devices
+            
+            const coords = getCoordinates(e);
+            ctx.strokeStyle = colorPicker.value;
+            ctx.lineWidth = brushSize.value;
+            
+            ctx.lineTo(coords.x, coords.y);
+            ctx.stroke();
+        }
+
+        function stopDrawing() {
+            if (!isDrawing) return;
+            ctx.closePath();
+            isDrawing = false;
+        }
+
+        // Mouse Events
+        canvas.addEventListener('mousedown', startDrawing);
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('mouseup', stopDrawing);
+        canvas.addEventListener('mouseout', stopDrawing);
+
+        // Touch Events
+        canvas.addEventListener('touchstart', startDrawing, { passive: false });
+        canvas.addEventListener('touchmove', draw, { passive: false });
+        canvas.addEventListener('touchend', stopDrawing);
+        canvas.addEventListener('touchcancel', stopDrawing);
+
+        // Clear Canvas
+        clearBtn.addEventListener('click', () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            textInput.value = '';
+        });
+
+        // Download Signature
+        downloadBtn.addEventListener('click', () => {
+            let dataURL;
+            const bgType = document.getElementById('bgOption').value;
+
+            if (bgType === 'white') {
+                const tempCanvas = document.createElement('canvas');
+                tempCanvas.width = canvas.width;
+                tempCanvas.height = canvas.height;
+                const tempCtx = tempCanvas.getContext('2d');
+                
+                tempCtx.fillStyle = '#ffffff';
+                tempCtx.fillRect(0, 0, tempCanvas.width, tempCanvas.height);
+                tempCtx.drawImage(canvas, 0, 0);
+                
+                dataURL = tempCanvas.toDataURL('image/png');
+            } else {
+                dataURL = canvas.toDataURL('image/png');
+            }
+
+            const link = document.createElement('a');
+            link.download = 'my-signature.png';
+            link.href = dataURL;
+            link.click();
+        });
+
+    </script>
+</body>
+</html>
