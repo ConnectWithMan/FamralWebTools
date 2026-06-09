@@ -1,0 +1,372 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Online HTML Viewer & Editor - HTML Viewer</title>
+    <meta name="description" content="Use our free online HTML Viewer to instantly render, test, and preview your HTML code. Secure, fast, and runs entirely in your browser with no installation.">
+    <meta name="keywords" content="html viewer, html renderer, test html, view html, web tools, developer tools, free html tool">
+    <meta name="author" content="Famral">
+    <meta property="og:title" content="Free Online HTML Viewer & Editor">
+    <meta property="og:description" content="Use our free online HTML Viewer to instantly render, test, and preview your HTML code. Secure and fast.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tools.famral.com/html-viewer">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free Online HTML Viewer & Editor">
+    <meta name="twitter:description" content="Instantly render, test, and preview your HTML code with our free browser-based tool.">
+    <link rel="canonical" href="https://tools.famral.com/html-viewer">
+    <link rel="icon" type="image/png" href="https://www.famral.com/favicon.png">
+
+        <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-22NPRLMEYS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-22NPRLMEYS');
+</script>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7876432493491415"
+     crossorigin="anonymous"></script>
+     
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --secondary: #475569;
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --text: #1e293b;
+            --border: #cbd5e1;
+        }
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background: var(--surface);
+            padding: 1rem 2rem;
+            border-bottom: 2px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .brand {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+        nav a {
+            margin-left: 2rem;
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        nav a:hover { color: var(--primary); }
+        .hamburger { display: none; flex-direction: column; gap: 6px; background: transparent; border: none; cursor: pointer; padding: 4px; }
+        .hamburger span { width: 30px; height: 3px; background-color: var(--text); transition: all 0.3s ease-in-out; }
+        .hamburger.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+        
+        .btn {
+            background: var(--primary);
+            color: white;
+            padding: 0.875rem 2rem;
+            border-radius: 0;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+            display: inline-block;
+            border: 2px solid transparent;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .btn:hover { 
+            background-color: var(--surface); 
+            color: var(--primary);
+            border-color: var(--primary);
+            box-shadow: 4px 4px 0 var(--primary-hover);
+            transform: translate(-2px, -2px);
+        }
+        .btn-secondary {
+            background: var(--surface);
+            color: var(--text);
+            border: 2px solid var(--border);
+        }
+        .btn-secondary:hover {
+            border-color: var(--secondary);
+            box-shadow: 4px 4px 0 var(--secondary);
+            color: var(--text);
+        }
+        main { flex: 1; padding: 2rem 1rem; }
+        .tool-container { max-width: 800px; margin: 0 auto; }
+        .tool-header { text-align: center; margin-bottom: 3rem; }
+        .tool-header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; color: var(--text); }
+        .tool-header p { color: var(--secondary); font-size: 1.1rem; }
+        
+        .tool-box { background: var(--surface); border: 2px solid var(--border); padding: 2rem; }
+        .input-group { margin-bottom: 1.5rem; }
+        label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
+        textarea, iframe {
+            width: 100%; height: 300px; padding: 1rem;
+            border: 2px solid var(--border); background: var(--bg);
+            color: var(--text); font-family: monospace; resize: vertical;
+            box-sizing: border-box; font-size: 1rem;
+        }
+        iframe { background: #ffffff; padding: 0; }
+        textarea:focus { outline: none; border-color: var(--primary); }
+        .controls { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+        
+        footer { text-align: center; padding: 0.2rem; color: var(--secondary); border-top: 2px solid var(--border); background: var(--surface); }
+
+        @media (max-width: 768px) {
+            header { padding: 1rem; }
+            .hamburger { display: flex; }
+            nav {
+                display: none; position: absolute; top: 100%; left: 0; right: 0;
+                background: var(--surface); flex-direction: column; align-items: center;
+                border-bottom: 2px solid var(--border); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            }
+            nav.active { display: flex; animation: slideDown 0.2s ease-out forwards; }
+            nav a { margin-left: 0; width: 100%; text-align: center; padding: 1rem 0; border-top: 1px solid var(--border); }
+            nav a:hover { background-color: var(--bg); }
+        }
+        .tool-content { margin-top: 4rem; border-top: 2px solid var(--border); padding-top: 2rem; }
+        .tool-content h2 { font-size: 1.8rem; color: var(--text); margin-bottom: 1rem; }
+        .tool-content h3 { font-size: 1.4rem; color: var(--text); margin-top: 2rem; margin-bottom: 0.5rem; }
+        .tool-content p { color: var(--secondary); margin-bottom: 1rem; }
+        .tool-content ul, .tool-content ol { padding-left: 1.5rem; color: var(--secondary); }
+        .tool-content li { margin-bottom: 0.5rem; }
+        code { background: var(--bg); padding: 0.2rem 0.4rem; border: 1px solid var(--border); font-family: monospace; }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+        .related-tools { margin-top: 3rem; border-top: 2px solid var(--border); padding-top: 2rem; }
+        .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; }
+        .tool-card { background: var(--surface); border: 2px solid var(--border); padding: 1.5rem; text-decoration: none; transition: all 0.2s; display: block; }
+        .tool-card:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+        .tool-card h4 { color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1.1rem; }
+        .tool-card p { color: var(--secondary); margin: 0; font-size: 0.9rem; }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Free Online HTML Viewer & Editor",
+      "url": "https://tools.famral.com/html-viewer",
+      "description": "Use our free online HTML Viewer to instantly render, test, and preview your HTML code. Secure, fast, and runs entirely in your browser with no installation.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "Is this tool free to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, this HTML Viewer is completely free for both personal and commercial use."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Does this tool store my code?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. The tool runs entirely on the client-side (in your browser), so your HTML code is never stored or transmitted."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Why use an HTML Viewer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "An HTML Viewer allows you to instantly see how your HTML code will be rendered in a web browser without saving it to a file. It is useful for testing snippets, debugging layouts, and rapid prototyping."
+        }
+      }]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Free Online HTML Viewer & Editor",
+      "description": "Use our free online HTML Viewer to instantly render, test, and preview your HTML code.",
+      "url": "https://tools.famral.com/html-viewer",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Famral"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Use the HTML Viewer",
+      "description": "Steps to render and test your HTML code instantly.",
+      "step": [{
+        "@type": "HowToStep",
+        "name": "Input HTML Code",
+        "text": "Paste or type your HTML code into the Input HTML Code box."
+      }, {
+        "@type": "HowToStep",
+        "name": "View HTML",
+        "text": "Click the View HTML button."
+      }, {
+        "@type": "HowToStep",
+        "name": "Check Result",
+        "text": "The rendered result will appear in the Rendered Output box. Use the Clear button to reset the tool and start over."
+      }]
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <a href="/" class="brand">Famral Tools</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+            <span></span><span></span><span></span>
+        </button>
+        <nav id="nav-menu">
+            <a href="/">All Tools</a>
+            <a href="/developer">Developer Tools</a>
+            <a href="/image">Image Tools</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="tool-container">
+            <div class="tool-header">
+                <h1>Free Online HTML Viewer</h1>
+                <p>Render, test, and preview your HTML code instantly in your browser.</p>
+            </div>
+
+            <div class="tool-box">
+                <div class="input-group">
+                    <label for="input">Input HTML Code</label>
+                    <textarea id="input" placeholder="Paste your HTML here..."></textarea>
+                </div>
+
+                <div class="controls">
+                    <button id="viewBtn" class="btn">View HTML</button>
+                    <button id="clearBtn" class="btn btn-secondary">Clear</button>
+                </div>
+
+                <div class="input-group">
+                    <label for="output">Rendered Output</label>
+                    <iframe id="output" title="Rendered HTML Output"></iframe>
+                </div>
+            </div>
+
+            <div class="related-tools">
+                <h3>Related Tools</h3>
+                <div class="tools-grid">
+                    <a href="/css-viewer" class="tool-card">
+                        <h4>CSS Viewer</h4>
+                        <p>View and test your CSS code instantly.</p>
+                    </a>
+                    <a href="/js-viewer" class="tool-card">
+                        <h4>JS Viewer</h4>
+                        <p>View and test your JavaScript code instantly.</p>
+                    </a>
+                    <a href="/json-viewer" class="tool-card">
+                        <h4>JSON Viewer</h4>
+                        <p>View and validate JSON data.</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="tool-content">
+                <h2>About HTML Viewer</h2>
+                <p>The HTML Viewer is a free online utility that lets you instantly render and preview your HTML code. It provides a quick way to test your markup, and when you're ready for production, you can optimize it using our <a href="/html-minifier" title="Optimize with HTML Minifier">HTML Minifier</a> to improve load times.</p>
+                
+                <h3>Why Use an HTML Viewer?</h3>
+                <ul>
+                    <li><strong>Rapid Testing:</strong> Test HTML snippets quickly without needing to create and save files.</li>
+                    <li><strong>Debugging:</strong> Easily identify layout and rendering issues in your code.</li>
+                    <li><strong>Learning:</strong> Great for beginners learning HTML to see immediate results before moving to complex formats like <a href="/json-formatter" title="Format JSON data">JSON</a>.</li>
+                </ul>
+
+                <h3>How to use?</h3>
+                <ol>
+                    <li>Paste or type your HTML code into the <strong>Input HTML Code</strong> box.</li>
+                    <li>Click the <strong>View HTML</strong> button.</li>
+                    <li>The rendered result will appear in the <strong>Rendered Output</strong> box.</li>
+                    <li>Use the <strong>Clear</strong> button to reset the tool and start over.</li>
+                </ol>
+
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>Instant Rendering:</strong> Preview your HTML code instantly without page reloads.</li>
+                    <li><strong>Privacy Protected:</strong> All processing is done in your browser; no data is sent to any server.</li>
+                    <li><strong>Isolated Execution:</strong> Uses a secure iframe to render your code safely.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions</h3>
+                <p><strong>Is this tool free to use?</strong><br>
+                Yes, this HTML Viewer is completely free for both personal and commercial use.</p>
+
+                <p><strong>Does this tool store my code?</strong><br>
+                No. The tool runs entirely on the client-side (in your browser), so your HTML code is never stored or transmitted.</p>
+
+                <p><strong>Why use an HTML Viewer?</strong><br>
+                An HTML Viewer allows you to instantly see how your HTML code will be rendered in a web browser without saving it to a file. It is useful for testing snippets, debugging layouts, and rapid prototyping.</p>
+
+                <p>Need more coding utilities? Check out our <a href="/developer">Developer Tools</a>.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Famral. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Logic
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Tool Logic
+        const input = document.getElementById('input');
+        const output = document.getElementById('output');
+
+        document.getElementById('viewBtn').onclick = () => {
+            const val = input.value;
+            if (!val) return;
+            output.srcdoc = val;
+        };
+        
+        document.getElementById('clearBtn').onclick = () => { 
+            input.value = ''; 
+            output.srcdoc = ''; 
+        };
+    </script>
+</body>
+</html>
