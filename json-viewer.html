@@ -1,0 +1,431 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Online JSON Viewer & Formatter - View JSON Instantly</title>
+    <meta name="description" content="Use our free online JSON Viewer to instantly format, validate, and view your JSON data. Secure, fast, and runs entirely in your browser with no installation.">
+    <meta name="keywords" content="json viewer, json formatter, json validator, test json, view json, format json, beautify json, web tools, developer tools, free json tool">
+    <meta name="author" content="Famral">
+    <meta property="og:title" content="Free Online JSON Viewer & Formatter">
+    <meta property="og:description" content="Use our free online JSON Viewer to instantly format, validate, and view your JSON data. Secure and fast.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tools.famral.com/json-viewer">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free Online JSON Viewer & Formatter">
+    <meta name="twitter:description" content="Instantly format, validate, and view your JSON data with our free browser-based tool.">
+    <link rel="canonical" href="https://tools.famral.com/json-viewer">
+    <link rel="icon" type="image/png" href="https://www.famral.com/favicon.png">
+
+        <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-22NPRLMEYS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-22NPRLMEYS');
+</script>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7876432493491415"
+     crossorigin="anonymous"></script>
+     
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --secondary: #475569;
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --text: #1e293b;
+            --border: #cbd5e1;
+        }
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background: var(--surface);
+            padding: 1rem 2rem;
+            border-bottom: 2px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .brand {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+        nav a {
+            margin-left: 2rem;
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        nav a:hover { color: var(--primary); }
+        .hamburger { display: none; flex-direction: column; gap: 6px; background: transparent; border: none; cursor: pointer; padding: 4px; }
+        .hamburger span { width: 30px; height: 3px; background-color: var(--text); transition: all 0.3s ease-in-out; }
+        .hamburger.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+        
+        .btn {
+            background: var(--primary);
+            color: white;
+            padding: 0.875rem 2rem;
+            border-radius: 0;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+            display: inline-block;
+            border: 2px solid transparent;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .btn:hover { 
+            background-color: var(--surface); 
+            color: var(--primary);
+            border-color: var(--primary);
+            box-shadow: 4px 4px 0 var(--primary-hover);
+            transform: translate(-2px, -2px);
+        }
+        .btn-secondary {
+            background: var(--surface);
+            color: var(--text);
+            border: 2px solid var(--border);
+        }
+        .btn-secondary:hover {
+            border-color: var(--secondary);
+            box-shadow: 4px 4px 0 var(--secondary);
+            color: var(--text);
+        }
+        main { flex: 1; padding: 2rem 1rem; }
+        .tool-container { max-width: 800px; margin: 0 auto; }
+        .tool-header { text-align: center; margin-bottom: 3rem; }
+        .tool-header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; color: var(--text); }
+        .tool-header p { color: var(--secondary); font-size: 1.1rem; }
+        
+        .tool-box { background: var(--surface); border: 2px solid var(--border); padding: 2rem; }
+        .input-group { margin-bottom: 1.5rem; }
+        label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
+        textarea, .code-view {
+            width: 100%; height: 300px; padding: 1rem;
+            border: 2px solid var(--border); background: var(--bg);
+            color: var(--text); font-family: monospace; resize: vertical;
+            box-sizing: border-box; font-size: 1rem;
+        }
+        .code-view { background: var(--surface); overflow: auto; white-space: pre-wrap; word-wrap: break-word; }
+        textarea:focus { outline: none; border-color: var(--primary); }
+        .controls { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+        
+        footer { text-align: center; padding: 0.2rem; color: var(--secondary); border-top: 2px solid var(--border); background: var(--surface); }
+
+        @media (max-width: 768px) {
+            header { padding: 1rem; }
+            .hamburger { display: flex; }
+            nav {
+                display: none; position: absolute; top: 100%; left: 0; right: 0;
+                background: var(--surface); flex-direction: column; align-items: center;
+                border-bottom: 2px solid var(--border); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            }
+            nav.active { display: flex; animation: slideDown 0.2s ease-out forwards; }
+            nav a { margin-left: 0; width: 100%; text-align: center; padding: 1rem 0; border-top: 1px solid var(--border); }
+            nav a:hover { background-color: var(--bg); }
+        }
+        .tool-content { margin-top: 4rem; border-top: 2px solid var(--border); padding-top: 2rem; }
+        .tool-content h2 { font-size: 1.8rem; color: var(--text); margin-bottom: 1rem; }
+        .tool-content h3 { font-size: 1.4rem; color: var(--text); margin-top: 2rem; margin-bottom: 0.5rem; }
+        .tool-content p { color: var(--secondary); margin-bottom: 1rem; }
+        .tool-content ul, .tool-content ol { padding-left: 1.5rem; color: var(--secondary); }
+        .tool-content li { margin-bottom: 0.5rem; }
+        code { background: var(--bg); padding: 0.2rem 0.4rem; border: 1px solid var(--border); font-family: monospace; }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+        .related-tools { margin-top: 3rem; border-top: 2px solid var(--border); padding-top: 2rem; }
+        .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; }
+        .tool-card { background: var(--surface); border: 2px solid var(--border); padding: 1.5rem; text-decoration: none; transition: all 0.2s; display: block; }
+        .tool-card:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+        .tool-card h4 { color: var(--primary); margin: 0 0 0.5rem 0; font-size: 1.1rem; }
+        .tool-card p { color: var(--secondary); margin: 0; font-size: 0.9rem; }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Free Online JSON Viewer & Formatter",
+      "url": "https://tools.famral.com/json-viewer",
+      "description": "Use our free online JSON Viewer to instantly format, validate, and view your JSON data. Secure, fast, and runs entirely in your browser with no installation.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "Is this tool free to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, this JSON Viewer is completely free for both personal and commercial use."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Does this tool store my code?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. The tool runs entirely on the client-side (in your browser), so your JSON data is never stored or transmitted."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Why use a JSON Viewer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A JSON Viewer automatically formats and highlights the syntax of raw JSON data, making it vastly easier to read, understand, and validate the structure."
+        }
+      }]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Free Online JSON Viewer & Formatter",
+      "description": "Use our free online JSON Viewer to instantly format, validate, and view your JSON data.",
+      "url": "https://tools.famral.com/json-viewer",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Famral"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Use the JSON Viewer",
+      "description": "Steps to format and view your JSON data instantly.",
+      "step": [{
+        "@type": "HowToStep",
+        "name": "Input JSON Data",
+        "text": "Paste or type your unformatted JSON into the Input JSON Data box."
+      }, {
+        "@type": "HowToStep",
+        "name": "View Formatted JSON",
+        "text": "Click the View JSON button."
+      }, {
+        "@type": "HowToStep",
+        "name": "Check Result",
+        "text": "The formatted result will appear in the Formatted Output box. Use the Copy button to copy your formatted code."
+      }]
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <a href="/" class="brand">Famral Tools</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+            <span></span><span></span><span></span>
+        </button>
+        <nav id="nav-menu">
+            <a href="/">All Tools</a>
+            <a href="/developer">Developer Tools</a>
+            <a href="/image">Image Tools</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="tool-container">
+            <div class="tool-header">
+                <h1>Free Online JSON Viewer</h1>
+                <p>Format, validate, and view your JSON data instantly in your browser.</p>
+            </div>
+
+            <div class="tool-box">
+                <div class="input-group">
+                    <label for="input">Input JSON Data</label>
+                    <textarea id="input" placeholder='Paste your JSON here... (e.g., {"hello": "world"})'></textarea>
+                </div>
+
+                <div class="controls">
+                    <button id="viewBtn" class="btn">Format JSON</button>
+                    <button id="copyBtn" class="btn btn-secondary">Copy JSON</button>
+                    <button id="clearBtn" class="btn btn-secondary">Clear</button>
+                </div>
+
+                <div class="input-group">
+                    <label for="output">Formatted Output</label>
+                    <div id="output" class="code-view"></div>
+                </div>
+            </div>
+
+            <div class="related-tools">
+                <h3>Related Tools</h3>
+                <div class="tools-grid">
+                    <a href="/html-viewer" class="tool-card">
+                        <h4>HTML Viewer</h4>
+                        <p>View and test your HTML code instantly.</p>
+                    </a>
+                    <a href="/xml-viewer" class="tool-card">
+                        <h4>XML Viewer</h4>
+                        <p>View and format your XML data instantly.</p>
+                    </a>
+                    <a href="/markdown-viewer" class="tool-card">
+                        <h4>Markdown Viewer</h4>
+                        <p>View and preview your Markdown content instantly.</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="tool-content">
+                <h2>About JSON Viewer</h2>
+                <p>The JSON Viewer is a free online utility that lets you instantly format, validate, and analyze your raw JSON data with rich syntax highlighting. It automatically indents the code and colors keys, strings, numbers, and booleans, making nested objects easily readable. If you are working with frontend logic, you might also find our <a href="/js-viewer" title="JavaScript Viewer">JavaScript Viewer</a> highly useful.</p>
+                
+                <h3>Why Use a JSON Viewer?</h3>
+                <ul>
+                    <li><strong>Readability:</strong> Instantly formats cluttered or minified JSON into structured objects.</li>
+                    <li><strong>Validation:</strong> Acts as a validator to quickly identify syntax errors like missing brackets or trailing commas.</li>
+                    <li><strong>Efficiency:</strong> Make sense of dense API payload responses immediately.</li>
+                </ul>
+
+                <h3>How to use?</h3>
+                <ol>
+                    <li>Paste or type your unformatted JSON into the <strong>Input JSON Data</strong> box.</li>
+                    <li>Click the <strong>Format JSON</strong> button.</li>
+                    <li>The pretty-printed, highlighted code will appear in the <strong>Formatted Output</strong> box.</li>
+                    <li>Use the <strong>Copy JSON</strong> button to copy the beautifully formatted code to your clipboard.</li>
+                </ol>
+
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>Auto-Formatting:</strong> Pretty-prints your JSON data instantly without page reloads.</li>
+                    <li><strong>Privacy Protected:</strong> All processing is done in your browser; no data is sent to any server.</li>
+                    <li><strong>Real-Time Updates:</strong> Watch your code highlight automatically as you type.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions</h3>
+                <p><strong>Is this tool free to use?</strong><br>
+                Yes, this JSON Viewer is completely free for both personal and commercial use.</p>
+
+                <p><strong>Does this tool store my code?</strong><br>
+                No. The tool runs entirely on the client-side (in your browser), so your JSON data is never stored or transmitted.</p>
+
+                <p><strong>Why use a JSON Viewer?</strong><br>
+                Raw, minified JSON returned from APIs or logs can be incredibly difficult to read. A JSON Viewer automatically formats (pretty-prints) and highlights the syntax so humans can easily navigate and understand the data structure.</p>
+
+                <p>Need more coding utilities? Check out our <a href="/developer">Developer Tools</a>.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Famral. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Logic
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Tool Logic
+        const input = document.getElementById('input');
+        const output = document.getElementById('output');
+        
+        const formatAndHighlightJSON = (rawJson) => {
+            try {
+                const obj = JSON.parse(rawJson);
+                const prettyJson = JSON.stringify(obj, null, 4);
+                let html = prettyJson.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                
+                html = html.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
+                    let cls = 'color: #098658;'; // number
+                    if (/^"/.test(match)) {
+                        if (/:$/.test(match)) {
+                            return `<span style="color: #0451a5; font-weight: 600;">${match.replace(/:$/, '')}</span>:`;
+                        } else {
+                            cls = 'color: #a31515;'; // string
+                        }
+                    } else if (/true|false/.test(match)) {
+                        cls = 'color: #0000ff;'; // boolean
+                    } else if (/null/.test(match)) {
+                        cls = 'color: #0000ff;'; // null
+                    }
+                    return '<span style="' + cls + '">' + match + '</span>';
+                });
+                return html;
+            } catch (e) {
+                return `<div style="color: #ef4444; padding: 1rem;"><strong>Invalid JSON:</strong><br>${e.message}</div>`;
+            }
+        };
+
+        const renderViewer = () => {
+            const val = input.value;
+            if (!val) { output.innerHTML = ''; return; }
+            
+            output.innerHTML = formatAndHighlightJSON(val);
+        };
+        
+        // Initial sample
+        if (!input.value) {
+            input.value = `{\n  "name": "John Doe",\n  "age": 30,\n  "isDeveloper": true,\n  "skills": [\n    "JavaScript",\n    "HTML",\n    "CSS"\n  ],\n  "company": null\n}`;
+        }
+        
+        // Initial render so the user sees the sample JSON immediately
+        renderViewer();
+
+        // Render on button click
+        document.getElementById('viewBtn').onclick = renderViewer;
+        
+        // Live preview: update automatically as the user types JSON
+        input.addEventListener('input', renderViewer);
+
+        document.getElementById('clearBtn').onclick = () => { 
+            input.value = ''; 
+            renderViewer(); 
+        };
+        
+        document.getElementById('copyBtn').onclick = function() {
+            const val = input.value;
+            if (!val) return;
+            
+            let textToCopy = val;
+            try {
+                // Always try to copy the clean, pretty-printed version if valid
+                textToCopy = JSON.stringify(JSON.parse(val), null, 4);
+            } catch (e) {}
+
+            navigator.clipboard.writeText(textToCopy);
+            const originalText = this.textContent;
+            this.textContent = "Copied!";
+            setTimeout(() => this.textContent = originalText, 2000);
+        };
+    </script>
+</body>
+</html>
