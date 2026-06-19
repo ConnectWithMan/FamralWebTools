@@ -1,0 +1,560 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Online JPG to RAW Converter</title>
+    <meta name="description"
+        content="Convert JPG images to RAW pixel data instantly. Free, fast, and runs entirely in your browser.">
+    <meta name="keywords"
+        content="jpg to raw, jpeg to raw, convert jpg to raw, raw image converter, jpg raw converter, image tools, web tools">
+    <meta name="author" content="Famral">
+    <meta property="og:title" content="Free Online JPG to RAW Converter">
+    <meta property="og:description" content="Convert JPG images to RAW pixel data instantly. Free and secure.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tools.famral.com/jpg-to-raw">
+    <meta property="og:image" content="https://tools.famral.com/tools.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free Online JPG to RAW Converter">
+    <meta name="twitter:description" content="Convert JPG images to RAW pixel data instantly. Free and secure.">
+    <meta name="twitter:image" content="https://tools.famral.com/tools.png">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://tools.famral.com/jpg-to-raw">
+    <link rel="icon" type="image/png" href="https://www.famral.com/favicon.png">
+
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7876432493491415"
+     crossorigin="anonymous"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-22NPRLMEYS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-22NPRLMEYS');
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebApplication",
+                "name": "Free Online JPG to RAW Converter",
+                "url": "https://tools.famral.com/jpg-to-raw",
+                "description": "Convert JPG images to RAW pixel data instantly. Free, fast, and runs entirely in your browser.",
+                "applicationCategory": "MultimediaApplication",
+                "operatingSystem": "Any",
+                "author": {
+                    "@type": "Organization",
+                    "name": "Famral",
+                    "url": "https://www.famral.com"
+                },
+                "featureList": [
+                    "100% Secure",
+                    "Fast Conversion",
+                    "No Installation Required",
+                    "Free to Use"
+                ]
+            },
+            {
+                "@type": "Article",
+                "headline": "About the JPG to RAW Converter",
+                "description": "The JPG to RAW Converter is a free online utility that allows you to change your JPG images into raw pixel data files instantly. When you need to quickly and securely convert JPG to RAW, our browser-based tool is the perfect solution.",
+                "author": {
+                    "@type": "Organization",
+                    "name": "Famral",
+                    "url": "https://www.famral.com"
+                },
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": "https://tools.famral.com/jpg-to-raw"
+                }
+            },
+            {
+                "@type": "HowTo",
+                "name": "How to convert JPG to RAW",
+                "step": [
+                    { "@type": "HowToStep", "text": "Click Upload JPG Image to select a file from your device." },
+                    { "@type": "HowToStep", "text": "Click the Convert to RAW button to start the JPG to RAW conversion process." },
+                    { "@type": "HowToStep", "text": "Preview the image and click Download RAW to save." }
+                ]
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "Is this tool free?",
+                        "acceptedAnswer": { "@type": "Answer", "text": "Yes, this JPG to RAW converter is completely free to use for personal and commercial purposes." }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Is my data safe?",
+                        "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Unlike other converters that upload your files to a server, this tool processes your images directly on your device using JavaScript. Your files never leave your computer." }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Do I need to install software?",
+                        "acceptedAnswer": { "@type": "Answer", "text": "No, this is a web-based tool. You only need a web browser." }
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --secondary: #475569;
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --text: #1e293b;
+            --border: #cbd5e1;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background: var(--surface);
+            padding: 1rem 2rem;
+            border-bottom: 2px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .brand {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        nav a {
+            margin-left: 2rem;
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background-color: var(--text);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+
+        .btn {
+            background: var(--primary);
+            color: white;
+            padding: 0.875rem 2rem;
+            border-radius: 0;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+            display: inline-block;
+            border: 2px solid transparent;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background-color: var(--surface);
+            color: var(--primary);
+            border-color: var(--primary);
+            box-shadow: 4px 4px 0 var(--primary-hover);
+            transform: translate(-2px, -2px);
+        }
+
+        .btn-secondary {
+            background: var(--surface);
+            color: var(--text);
+            border: 2px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--secondary);
+            box-shadow: 4px 4px 0 var(--secondary);
+            color: var(--text);
+        }
+
+        main {
+            flex: 1;
+            padding: 2rem 1rem;
+        }
+
+        .tool-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .tool-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .tool-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .tool-header p {
+            color: var(--secondary);
+            font-size: 1.1rem;
+        }
+
+        .tool-box {
+            background: var(--surface);
+            border: 2px solid var(--border);
+            padding: 2rem;
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        textarea {
+            width: 100%;
+            height: 200px;
+            padding: 1rem;
+            border: 2px solid var(--border);
+            background: var(--bg);
+            color: var(--text);
+            font-family: monospace;
+            resize: vertical;
+            box-sizing: border-box;
+            font-size: 1rem;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .controls {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 0.2rem;
+            color: var(--secondary);
+            border-top: 2px solid var(--border);
+            background: var(--surface);
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--surface);
+                flex-direction: column;
+                align-items: center;
+                border-bottom: 2px solid var(--border);
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            }
+
+            nav.active {
+                display: flex;
+                animation: slideDown 0.2s ease-out forwards;
+            }
+
+            nav a {
+                margin-left: 0;
+                width: 100%;
+                text-align: center;
+                padding: 1rem 0;
+                border-top: 1px solid var(--border);
+            }
+
+            nav a:hover {
+                background-color: var(--bg);
+            }
+        }
+
+        .tool-content {
+            margin-top: 4rem;
+            border-top: 2px solid var(--border);
+            padding-top: 2rem;
+        }
+
+        .tool-content h2 {
+            font-size: 1.8rem;
+            color: var(--text);
+            margin-bottom: 1rem;
+        }
+
+        .tool-content h3 {
+            font-size: 1.4rem;
+            color: var(--text);
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tool-content p {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .tool-content ul,
+        .tool-content ol {
+            padding-left: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .tool-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        code {
+            background: var(--bg);
+            padding: 0.2rem 0.4rem;
+            border: 1px solid var(--border);
+            font-family: monospace;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="/" class="brand">Famral Tools</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+            <span></span><span></span><span></span>
+        </button>
+        <nav id="nav-menu">
+            <a href="/">All Tools</a>
+            <a href="/developer">Developer Tools</a>
+            <a href="/image">Image Tools</a>
+        </nav>
+    </header>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7876432493491415"
+     crossorigin="anonymous"></script>
+<!-- FmrlToolsAllPgTopResnsv -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7876432493491415"
+     data-ad-slot="7246941950"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    
+    <main>
+        <div class="tool-container">
+            <div class="tool-header">
+                <h1>JPG to RAW Converter</h1>
+                <p>Convert JPG images to RAW pixel data instantly.</p>
+            </div>
+
+            <div class="tool-box">
+                <div class="input-group">
+                    <label for="imageInput">Upload JPG Image</label>
+                    <input type="file" id="imageInput" accept=".jpg, .jpeg, image/jpeg"
+                        style="width: 100%; padding: 1rem; background: var(--bg); border: 2px solid var(--border); box-sizing: border-box;">
+                </div>
+
+                <div class="controls">
+                    <button id="convertBtn" class="btn">Convert to RAW</button>
+                    <a id="downloadBtn" class="btn btn-secondary" style="display:none;">Download RAW</a>
+                </div>
+
+                <div class="input-group">
+                    <label for="preview">Image Preview</label>
+                    <div id="previewContainer"
+                        style="min-height: 200px; border: 2px solid var(--border); background: var(--bg); display: flex; align-items: center; justify-content: center; padding: 1rem; flex-direction: column;">
+                        <img id="preview"
+                            style="max-width: 100%; max-height: 400px; display: none; margin-bottom: 1rem;">
+                        <p id="previewInfo" style="display:none; color: var(--secondary); margin: 0; text-align: center;"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tool-content">
+                <h2>About the JPG to RAW Converter</h2>
+                <p>The <strong>JPG to RAW</strong> Converter is a free online utility that turns your JPG images into raw pixel data files instantly. This tool works directly in your browser so your files never leave your device.</p>
+
+                <p>When you need to quickly and securely convert <strong>JPG to RAW</strong>, our browser-based tool is the perfect solution. JPG to RAW conversion preserves exact pixel values in an uncompressed byte stream, which is ideal for game engines, machine learning, and custom rendering pipelines. Check out our <a href="/image" title="Image Tools">Image Tools</a> collection for more utilities, or explore <a href="/" title="All Tools">All Tools</a> for other helpful web applications.</p>
+
+                <h3>Why Convert JPG to RAW?</h3>
+                <ul>
+                    <li><strong>Raw pixel output:</strong> Get the image data as plain 8-bit RGBA bytes with no headers or compression.</li>
+                    <li><strong>Use in development:</strong> RAW files are useful for game engines, custom renderers, and image processing workflows.</li>
+                    <li><strong>Preserve quality:</strong> Unlike most compressed formats, RAW preserves exact pixel values from your JPG.</li>
+                </ul>
+
+                <h3>How to use?</h3>
+                <ol>
+                    <li>Click <strong>Upload JPG Image</strong> to select a file from your device.</li>
+                    <li>Click the <strong>Convert to RAW</strong> button to start the JPG to RAW conversion process.</li>
+                    <li>Preview the JPG and click <strong>Download RAW</strong> to save the raw pixel data.</li>
+                </ol>
+
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>100% Secure:</strong> All conversions happen locally in your browser. Your JPG images are never uploaded to a server.</li>
+                    <li><strong>Fast Conversion:</strong> Since there is no upload time, conversions are nearly instantaneous.</li>
+                    <li><strong>No Installation Required:</strong> Works on any device with a modern web browser, including mobile phones and tablets.</li>
+                    <li><strong>Free to Use:</strong> No hidden costs, subscriptions, or watermarks.</li>
+                    <li><strong>Supports transparency:</strong> Converts JPG pixel values into RGBA pixels, preserving alpha if present in decoded data.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions</h3>
+                <p><strong>What does RAW mean?</strong><br>The RAW file contains uncompressed pixel bytes in RGBA order. It does not include image headers or metadata.</p>
+                <p><strong>Can I open RAW files directly?</strong><br>RAW files are generally not viewable by standard image viewers. They must be imported by tools or code that know the image width and height.</p>
+                <p><strong>Is this tool free?</strong><br>Yes, this JPG to RAW converter is completely free to use for personal and commercial purposes.</p>
+                <p><strong>Is my data safe?</strong><br>Absolutely. Unlike other converters that upload your files to a server, this tool processes your images directly on your device using JavaScript. Your files never leave your computer.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; Famral. All rights reserved.</p>
+    </footer>
+
+    <script>
+
+        // Mobile Menu Logic
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Tool Logic
+        const imageInput = document.getElementById('imageInput');
+        const preview = document.getElementById('preview');
+        const previewInfo = document.getElementById('previewInfo');
+        const downloadBtn = document.getElementById('downloadBtn');
+
+        let originalImage = new Image();
+
+        imageInput.onchange = () => {
+            if (imageInput.files.length === 0) return;
+            const file = imageInput.files[0];
+            const reader = new FileReader();
+
+            reader.onload = (evt) => {
+                originalImage.src = evt.target.result;
+                originalImage.onload = () => {
+                    preview.src = originalImage.src;
+                    preview.style.display = 'block';
+                    previewInfo.textContent = `Preview: ${originalImage.width} x ${originalImage.height} pixels`;
+                    previewInfo.style.display = 'block';
+                    downloadBtn.style.display = 'none';
+                };
+            };
+            reader.readAsDataURL(file);
+        };
+
+        document.getElementById('convertBtn').type = 'button';
+        document.getElementById('convertBtn').onclick = processImage;
+
+        function processImage() {
+            if (!originalImage.src) {
+                alert('Please upload a JPG image first.');
+                return;
+            }
+
+            const canvas = document.createElement('canvas');
+            canvas.width = originalImage.width;
+            canvas.height = originalImage.height;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(originalImage, 0, 0);
+
+            const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            const rawBlob = new Blob([imageData.data], { type: 'application/octet-stream' });
+            const rawUrl = URL.createObjectURL(rawBlob);
+
+            downloadBtn.href = rawUrl;
+            downloadBtn.target = '_blank';
+            downloadBtn.download = `converted-image-${canvas.width}x${canvas.height}.raw`;
+            downloadBtn.style.display = 'inline-block';
+            downloadBtn.textContent = 'Download RAW';
+        };
+
+
+    </script>
+</body>
+
+</html>
