@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF to WEBP Converter — Famral Tools</title>
+  <meta name="description"
+    content="Convert PDF pages to WEBP images instantly. Free, fast, and runs entirely in your browser.">
+  <meta name="keywords"
+    content="pdf to webp, convert pdf to webp, pdf converter, image converter, free pdf to webp, web tools">
+  <meta name="author" content="Famral">
+  <meta property="og:title" content="PDF to WEBP Converter — Famral Tools">
+  <meta property="og:description" content="Convert PDF pages to WEBP images instantly in your browser. Secure and free.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tools.famral.com/pdf-to-webp">
+  <meta property="og:image" content="https://tools.famral.com/tools.png">
+  <meta property="og:image:alt" content="PDF to WEBP Converter preview image">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PDF to WEBP Converter — Famral Tools">
+  <meta name="twitter:description"
+    content="Convert PDF pages to WEBP images instantly in your browser. Secure and free.">
+  <meta name="twitter:image" content="https://tools.famral.com/tools.png">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://tools.famral.com/pdf-to-webp">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#2563eb">
+  <link rel="icon" type="image/png" href="https://www.famral.com/favicon.png">
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7876432493491415"
+    crossorigin="anonymous"></script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-22NPRLMEYS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-22NPRLMEYS');
+  </script>
+
+
+  <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Free Online PDF to WEBP Converter",
+        "url": "https://tools.famral.com/pdf-to-webp",
+        "description": "Convert PDF pages to WEBP images instantly. Free, fast, and runs entirely in your browser.",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any",
+        "author": {
+            "@type": "Organization",
+            "name": "Famral",
+            "url": "https://www.famral.com"
+        }
+    }
+    </script>
+  <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://tools.famral.com/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Image Tools",
+                    "item": "https://tools.famral.com/image"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "PDF to WEBP",
+                    "item": "https://tools.famral.com/pdf-to-webp"
+                }
+            ]
+        }
+        </script>
+  <style>
+    /* Accessibility helper (visually hidden but available to screen readers) */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    :root {
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --secondary: #475569;
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --text: #1e293b;
+      --border: #cbd5e1;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background: var(--surface);
+      padding: 1rem 2rem;
+      border-bottom: 2px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .brand {
+      font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+
+    nav a {
+      margin-left: 2rem;
+      text-decoration: none;
+      color: var(--secondary);
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      width: 30px;
+      height: 3px;
+      background-color: var(--text);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+
+    .btn {
+      background: var(--primary);
+      color: white;
+      padding: 0.875rem 2rem;
+      border-radius: 0;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.2s;
+      display: inline-block;
+      border: 2px solid transparent;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .btn:hover {
+      background-color: var(--surface);
+      color: var(--primary);
+      border-color: var(--primary);
+      box-shadow: 4px 4px 0 var(--primary-hover);
+      transform: translate(-2px, -2px);
+    }
+
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--text);
+      border: 2px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--secondary);
+      box-shadow: 4px 4px 0 var(--secondary);
+      color: var(--text);
+    }
+
+    main {
+      flex: 1;
+      padding: 2rem 1rem;
+    }
+
+    .tool-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .tool-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .tool-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+
+    .tool-header p {
+      color: var(--secondary);
+      font-size: 1.1rem;
+    }
+
+    .tool-box {
+      background: var(--surface);
+      border: 2px solid var(--border);
+      padding: 2rem;
+    }
+
+    .input-group {
+      margin-bottom: 1.5rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    textarea {
+      width: 100%;
+      height: 200px;
+      padding: 1rem;
+      border: 2px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+      font-family: monospace;
+      resize: vertical;
+      box-sizing: border-box;
+      font-size: 1rem;
+    }
+
+    textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    .controls {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 0.2rem;
+      color: var(--secondary);
+      border-top: 2px solid var(--border);
+      background: var(--surface);
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 1rem;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--surface);
+        flex-direction: column;
+        align-items: center;
+        border-bottom: 2px solid var(--border);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      }
+
+      nav.active {
+        display: flex;
+        animation: slideDown 0.2s ease-out forwards;
+      }
+
+      nav a {
+        margin-left: 0;
+        width: 100%;
+        text-align: center;
+        padding: 1rem 0;
+        border-top: 1px solid var(--border);
+      }
+
+      nav a:hover {
+        background-color: var(--bg);
+      }
+    }
+
+    .tool-content {
+      margin-top: 4rem;
+      border-top: 2px solid var(--border);
+      padding-top: 2rem;
+    }
+
+    .related-tools {
+      margin-top: 2rem;
+      padding: 2rem;
+      background: var(--bg);
+      border: 2px solid var(--border);
+      border-radius: 4px;
+    }
+
+    .related-tools h3 {
+      margin-top: 0;
+      font-size: 1.3rem;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+    }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .tool-card {
+      background: var(--surface);
+      border: 2px solid var(--border);
+      padding: 1.5rem;
+      text-decoration: none;
+      color: var(--text);
+      transition: all 0.2s;
+      border-radius: 4px;
+    }
+
+    .tool-card:hover {
+      border-color: var(--primary);
+      box-shadow: 0 4px 8px rgba(37, 99, 235, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .tool-card h4 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.1rem;
+      color: var(--primary);
+    }
+
+    .tool-card p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--secondary);
+    }
+
+    @media (max-width: 768px) {
+      .tool-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .tool-content h2 {
+      font-size: 1.8rem;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .tool-content h3 {
+      font-size: 1.4rem;
+      color: var(--text);
+      margin-top: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .tool-content p {
+      color: var(--secondary);
+      margin-bottom: 1rem;
+    }
+
+    .tool-content ul,
+    .tool-content ol {
+      padding-left: 1.5rem;
+      color: var(--secondary);
+    }
+
+    .tool-content li {
+      margin-bottom: 0.5rem;
+    }
+
+    code {
+      background: var(--bg);
+      padding: 0.2rem 0.4rem;
+      border: 1px solid var(--border);
+      font-family: monospace;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <a href="/" class="brand">Famral Tools</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="nav-menu">
+      <a href="/">Home</a>
+      <a href="/developer">Developer Tools</a>
+      <a href="/image">Image Tools</a>
+      <a href="/pdf">PDF Tools</a>
+    </nav>
+  </header>
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7876432493491415"
+    crossorigin="anonymous"></script>
+  <!-- FmrlToolsAllPgTopResnsv -->
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7876432493491415" data-ad-slot="7246941950"
+    data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+
+  <main>
+    <div class="tool-container">
+      <noscript>
+        <div
+          style="border:2px solid var(--border); background: #fff3cd; color:#856404; padding:1rem; margin-bottom:1rem;">
+          This tool requires JavaScript to run. Please enable JavaScript in your browser.
+        </div>
+      </noscript>
+      <div class="tool-header">
+        <h1>PDF to WEBP Converter</h1>
+        <p>Convert pages from PDF files into WEBP images instantly.</p>
+      </div>
+
+      <div class="tool-box">
+        <div class="input-group">
+          <label for="imageInput">Upload PDF File</label>
+          <input aria-describedby="uploadHelp" type="file" id="imageInput" accept="application/pdf,.pdf"
+            style="width: 100%; padding: 1rem; background: var(--bg); border: 2px solid var(--border); box-sizing: border-box;">
+          <small id="uploadHelp" class="sr-only">Select a PDF file. The first page will be converted to a WEBP
+            image.</small>
+        </div>
+
+        <div class="controls">
+          <button id="convertBtn" class="btn">Convert to WEBP</button>
+          <a id="downloadBtn" class="btn btn-secondary" style="display:none;">Download</a>
+        </div>
+
+        <div class="input-group">
+          <label for="preview">Converted Result</label>
+          <div id="previewContainer" aria-live="polite"
+            style="min-height: 200px; border: 2px solid var(--border); background: var(--bg); display: flex; align-items: center; justify-content: center; padding: 1rem; flex-direction: column;">
+            <img id="preview" alt="Converted PDF page preview" loading="lazy" width="600" height="800"
+              style="max-width: 100%; max-height: 400px; display: none; margin-bottom: 1rem;">
+          </div>
+        </div>
+      </div>
+
+      
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7876432493491415"
+        crossorigin="anonymous"></script>
+      <!-- FmrlToolsAllPgTopResnsv -->
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7876432493491415" data-ad-slot="7246941950"
+        data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+
+      <div class="related-tools">
+        <h3>Related Tools</h3>
+        <div class="tool-grid">
+          <a href="/pdf-to-png" class="tool-card">
+            <h4>PDF to PNG</h4>
+            <p>Convert PDF pages to PNG images with transparency support.</p>
+          </a>
+          <a href="/pdf-to-jpg" class="tool-card">
+            <h4>PDF to JPG</h4>
+            <p>Convert PDF pages to JPG images instantly.</p>
+          </a>
+          <a href="/pdf-to-webp" class="tool-card">
+            <h4>PDF to WEBP</h4>
+            <p>Convert PDF pages to WEBP images instantly.</p>
+          </a>
+        </div>
+      </div>
+
+
+      <div class="tool-content">
+        <h2>About PDF to WEBP Converter</h2>
+        <p>The PDF to WEBP Converter is a free online utility that allows you to convert pages from PDF files into WEBP
+          images. Conversion happens directly in your browser without uploading files to a server.</p>
+
+        <h3>Why Convert PDF to WEBP?</h3>
+        <ul>
+          <li><strong>Image Export:</strong> Extract pages as images for use in presentations, web pages, or previews.
+          </li>
+          <li><strong>Modern Format:</strong> WEBP offers superior compression and quality, smaller file sizes than JPG with better quality.
+          </li>
+          <li><strong>Web Optimization:</strong> WEBP is ideal for web use, reducing bandwidth and improving page load times.</li>
+        </ul>
+
+        <h3>How to use?</h3>
+        <ol>
+          <li>Click <strong>Upload PDF File</strong> to select a file from your device.</li>
+          <li>Click the <strong>Convert to WEBP</strong> button to convert the first page.</li>
+          <li>Preview the result and click <strong>Download</strong> to save the WEBP.</li>
+        </ol>
+
+        
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7876432493491415"
+        crossorigin="anonymous"></script>
+      <!-- FmrlToolsAllPgTopResnsv -->
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7876432493491415" data-ad-slot="7246941950"
+        data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+
+        <h3>Key Features</h3>
+        <ul>
+          <li><strong>100% Secure:</strong> All conversions happen locally in your browser. Your PDFs are never uploaded
+            to any server.</li>
+          <li><strong>Fast Conversion:</strong> Since there is no upload time, conversions are nearly instantaneous.
+          </li>
+          <li><strong>No Installation Required:</strong> Works on any device with a modern web browser, including mobile
+            phones and tablets.</li>
+          <li><strong>Free to Use:</strong> No hidden costs, subscriptions, or watermarks.</li>
+        </ul>
+
+        <h3>Frequently Asked Questions</h3>
+        <p><strong>Is this tool free?</strong><br>Yes, this PDF to WEBP converter is completely free to use for personal
+          and commercial purposes.</p>
+        <p><strong>Is my data safe?</strong><br>Absolutely. Unlike other converters that upload your files to a server,
+          this tool processes your PDFs directly on your device using JavaScript. Your documents never leave your
+          computer.</p>
+        <p><strong>Do I need to install software?</strong><br>No, this is a web-based tool. You only need a web browser.
+        </p>
+
+        <h3>Tips for Best Results</h3>
+        <ul>
+          <li><strong>Choose compression:</strong> WEBP compression balances quality and file size for optimal web use.</li>
+          <li><strong>Crop or trim PDFs:</strong> Remove unnecessary margins in your PDF to reduce resulting WEBP size
+            and focus on important content.</li>
+          <li><strong>Large files:</strong> Very large PDFs may take longer to render. Try converting a subset of pages
+            if performance slows.</li>
+        </ul>
+
+        <h3>Supported Formats & Limits</h3>
+        <p>This tool accepts standard PDF files (.pdf). It outputs WEBP images. Typical browser limits apply for very
+          large PDFs — keep individual files under a few hundred MB for best performance.</p>
+
+        <h3>Examples</h3>
+        <p>Use this converter to:</p>
+        <ul>
+          <li>Export a PDF invoice page as a WEBP for embedding in emails or web pages.</li>
+          <li>Create optimized thumbnails or previews of report pages for faster website loading.</li>
+          <li>Save diagrams from PDFs as modern raster images for use in web applications.</li>
+        </ul>
+
+        <h3>Related Tools</h3>
+        <ul>
+          <li><a href="/image">Image Tools</a> — resize, crop, and convert common image formats.</li>
+          <li><a href="/pdf">PDF Tools</a> — other PDF utilities like merge, split, and compress.</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; Famral. All rights reserved.</p>
+  </footer>
+
+  <!-- PDF.js library (used to render PDF pages to canvas) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+
+  <script>
+    // Configure PDF.js worker
+    if (window.pdfjsLib) {
+      pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+    } else {
+      console.error('PDF.js failed to load.');
+    }
+
+    // If PDF.js didn't load, inform the user when they try to use the tool
+    if (!window.pdfjsLib) {
+      // Defer alert until DOM is ready
+      window.addEventListener('DOMContentLoaded', () => {
+        const convertBtn = document.getElementById('convertBtn');
+        if (convertBtn) {
+          convertBtn.addEventListener('click', () => {
+            alert('PDF.js failed to load. Please check your internet connection or try a different browser.');
+          });
+        }
+      });
+    }
+
+
+    // Mobile Menu Logic
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
+
+    // Tool Logic (PDF -> JPG)
+    const imageInput = document.getElementById('imageInput');
+    const preview = document.getElementById('preview');
+    const downloadBtn = document.getElementById('downloadBtn');
+
+    let pdfDoc = null;
+
+    imageInput.onchange = async (e) => {
+      preview.style.display = 'none';
+      downloadBtn.style.display = 'none';
+      if (imageInput.files.length === 0) return;
+      const file = imageInput.files[0];
+      if (!(file.type === 'application/pdf' || file.name.toLowerCase().endsWith('.pdf'))) {
+        alert('Please select a PDF file.');
+        return;
+      }
+
+      if (!window.pdfjsLib) {
+        alert('PDF.js is not available. Conversion cannot proceed.');
+        return;
+      }
+
+      const arrayBuffer = await file.arrayBuffer();
+      try {
+        pdfDoc = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+      } catch (err) {
+        console.error(err);
+        alert('Failed to load PDF.');
+        pdfDoc = null;
+      }
+    };
+
+    document.getElementById('convertBtn').onclick = async function () {
+      if (!pdfDoc) { alert('Please upload a PDF file first.'); return; }
+      try {
+        const page = await pdfDoc.getPage(1); // convert first page
+        const scale = 2; // increase for higher resolution
+        const viewport = page.getViewport({ scale });
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+        await page.render({ canvasContext: ctx, viewport }).promise;
+
+        const dataUrl = canvas.toDataURL('image/webp', 0.85);
+        preview.src = dataUrl;
+        preview.style.display = 'block';
+
+        downloadBtn.href = dataUrl;
+        downloadBtn.download = 'converted-page.webp';
+        downloadBtn.style.display = 'inline-block';
+      } catch (err) {
+        console.error(err);
+        alert('Conversion failed.');
+      }
+    };
+
+  </script>
+</body>
+
+</html>
